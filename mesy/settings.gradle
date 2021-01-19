@@ -1,0 +1,2 @@
+rootProject.name='medsy'
+include ':app'
