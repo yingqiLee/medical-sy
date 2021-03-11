@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/time_year"
+        android:text="200023"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="40dp"
+        android:text="zhouer"
+        android:id="@+id/time_week"
+        android:textSize="20sp"
+        android:layout_toRightOf="@+id/time_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="40dp"
+        android:text="zhouer"
+        android:id="@+id/time_day"
+        android:textSize="20sp"
+        android:layout_toRightOf="@+id/time_week"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

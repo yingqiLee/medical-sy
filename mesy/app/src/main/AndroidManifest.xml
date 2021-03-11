@@ -20,6 +20,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.medsy.Register"/>
+        <activity android:name="com.example.medsy.RegisterKS"/>
+        <activity android:name="com.example.medsy.RegisterDoctor"/>
+        <activity android:name="com.example.medsy.RegisterDetail"/>
+        <activity android:name="com.example.medsy.Task"/>
+        <activity android:name="com.example.medsy.DoctorMainActivity"/>
+        <activity android:name="com.example.medsy.Chat"/>
+
     </application>
 
 </manifest>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <RelativeLayout
+        android:id="@+id/rl_add"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_alignParentBottom="true">
+
+        <EditText
+            android:id="@+id/et_content_year"
+            android:fitsSystemWindows="true"
+            android:hint="输入年月日"
+            android:layout_toLeftOf="@id/btn_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"/>
+
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/add"/>
+        <EditText
+            android:layout_below="@+id/et_content_year"
+            android:id="@+id/et_content_week"
+            android:fitsSystemWindows="true"
+            android:layout_toLeftOf="@id/btn_add"
+            android:hint="输入周几"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"/>
+        <EditText
+            android:layout_below="@+id/et_content_week"
+            android:id="@+id/et_content_day"
+            android:fitsSystemWindows="true"
+            android:hint="输入上午下午"
+            android:layout_toLeftOf="@id/btn_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"/>
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/rl_add"
+        android:layout_marginBottom="5dp"></ListView>
+
+</RelativeLayout>

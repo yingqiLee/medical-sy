@@ -1,11 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView
+    <LinearLayout
+        android:id="@+id/doc_biaoti"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="第三页"
-        />
+        android:layout_height="50dp">
+        <ImageView
+            android:src="@drawable/jiantou"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="医生"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="110dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="25sp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_below="@+id/doc_biaoti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorPrimary"
+            />
+    </LinearLayout>
+    <EditText
+        android:id="@+id/doc_sousuo"
+        android:background="@drawable/regcircle"
+        android:layout_below="@+id/doc_biaoti"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:hint="请输入医生名字、或者疾病类别"
+        android:layout_marginLeft="50dp"/>
+    <LinearLayout
+        android:layout_below="@+id/doc_sousuo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorPrimary"
+            />
+    </LinearLayout>
+    <ListView
+        android:id="@+id/doc_List"
+        android:layout_below="@+id/doc_biaoti"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </RelativeLayout>

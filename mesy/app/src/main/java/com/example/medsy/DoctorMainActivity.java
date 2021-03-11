@@ -1,48 +1,44 @@
 package com.example.medsy;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTabHost;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import com.example.medsy.Contacts;
+import com.example.medsy.Doctor;
+import com.example.medsy.R;
+
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTabHost;
 
+public class DoctorMainActivity extends AppCompatActivity {
     private Map<String, ImageView> imageViewMap = new HashMap<>();
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.doctor_main);
         FragmentTabHost fragmentTabHost = findViewById(android.R.id.tabhost);
-
         fragmentTabHost.setup(this,
                 getSupportFragmentManager(),
                 android.R.id.tabcontent);
 
         TabHost.TabSpec tabSpec1 = fragmentTabHost.newTabSpec("tag1")
-                .setIndicator(getTabSpecView("tag1",R.drawable.yuyue,"预约"));
+                .setIndicator(getTabSpecView("tag1",R.drawable.yuyue,"联系人"));
         TabHost.TabSpec tabSpec2 = fragmentTabHost.newTabSpec("tag2")
-                .setIndicator(getTabSpecView("tag2",R.drawable.find,"发现"));
+                .setIndicator(getTabSpecView("tag2",R.drawable.find,"时间"));
         TabHost.TabSpec tabSpec3 = fragmentTabHost.newTabSpec("tag3")
-                .setIndicator(getTabSpecView("tag3",R.drawable.doctor,"医生"));
-        TabHost.TabSpec tabSpec4 = fragmentTabHost.newTabSpec("tag4")
-                .setIndicator(getTabSpecView("tag4",R.drawable.my,"我的"));
+                .setIndicator(getTabSpecView("tag3",R.drawable.doctor,"我的"));
 
-        fragmentTabHost.addTab(tabSpec1, Appointment.class,null);
-        fragmentTabHost.addTab(tabSpec2, Find.class, null);
-        fragmentTabHost.addTab(tabSpec3, Doctor.class, null);
-        fragmentTabHost.addTab(tabSpec4, My.class, null);
+        fragmentTabHost.addTab(tabSpec1, Contacts.class,null);
+        fragmentTabHost.addTab(tabSpec2, DoctorTaskTime.class, null);
+        fragmentTabHost.addTab(tabSpec3, DoctorMy.class, null);
 
         fragmentTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
@@ -53,31 +49,26 @@ public class MainActivity extends AppCompatActivity {
                         imageViewMap.get("tag1").setImageResource(R.drawable.yuyue1);
                         imageViewMap.get("tag2").setImageResource(R.drawable.find);
                         imageViewMap.get("tag3").setImageResource(R.drawable.doctor);
-                        imageViewMap.get("tag4").setImageResource(R.drawable.my1);
                         break;
                     case "tag2":
                         imageViewMap.get("tag1").setImageResource(R.drawable.yuyue);
                         imageViewMap.get("tag2").setImageResource(R.drawable.find1);
                         imageViewMap.get("tag3").setImageResource(R.drawable.doctor);
-                        imageViewMap.get("tag4").setImageResource(R.drawable.my1);
                         break;
                     case "tag3":
                         imageViewMap.get("tag1").setImageResource(R.drawable.yuyue);
                         imageViewMap.get("tag2").setImageResource(R.drawable.find);
                         imageViewMap.get("tag3").setImageResource(R.drawable.doctor1);
-                        imageViewMap.get("tag4").setImageResource(R.drawable.my1);
                         break;
                     case "tag4":
                         imageViewMap.get("tag1").setImageResource(R.drawable.yuyue);
                         imageViewMap.get("tag2").setImageResource(R.drawable.find);
                         imageViewMap.get("tag3").setImageResource(R.drawable.doctor);
-                        imageViewMap.get("tag4").setImageResource(R.drawable.my);
                         break;
                 }
             }
         });
     }
-
     public View getTabSpecView(String tag, int imageResId, String title) {
         LayoutInflater layoutInflater = getLayoutInflater();
         View view = layoutInflater.inflate(R.layout.tabbutton,null);
