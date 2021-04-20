@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <RelativeLayout
+        android:id="@+id/rl_add"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_alignParentBottom="true">
+
+        <EditText
+            android:id="@+id/hos_add_main"
+            android:fitsSystemWindows="true"
+            android:layout_toLeftOf="@id/hos_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="输入一级科室"
+            android:textSize="25sp"/>
+        <EditText
+            android:layout_below="@id/hos_add_main"
+            android:id="@+id/hos_add_little"
+            android:fitsSystemWindows="true"
+            android:layout_toLeftOf="@id/hos_add"
+            android:text="输入二级科室"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"/>
+        <EditText
+            android:layout_below="@+id/hos_add_little"
+            android:id="@+id/hos_add_introduce"
+            android:fitsSystemWindows="true"
+            android:layout_toLeftOf="@id/hos_add"
+            android:text="输入科室介绍"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"/>
+
+        <Button
+            android:id="@+id/hos_add"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/add"/>
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/rl_add"
+        android:layout_marginBottom="5dp"></ListView>
+
+</RelativeLayout>

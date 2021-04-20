@@ -3,9 +3,12 @@ package com.example.medsy.entity;
 public class Hospitals {
     private int id;
     private String name;
+    private String phone;
+    private String password;
     private String grade;
     private String type;
     private String rank;
+    private int Hflag;
 
 
 
@@ -25,6 +28,36 @@ public class Hospitals {
     }
 
     public Hospitals() {
+    }
+
+    public Hospitals(String phone, String password, int hflag) {
+        this.phone = phone;
+        this.password = password;
+        Hflag = hflag;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getHflag() {
+        return Hflag;
+    }
+
+    public void setHflag(int hflag) {
+        Hflag = hflag;
     }
 
     public int getId() {

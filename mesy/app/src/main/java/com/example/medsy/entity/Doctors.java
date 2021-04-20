@@ -6,6 +6,7 @@ public class Doctors {
     private String dphone;
     private String dtitle;
     private String dskill;
+    private String ddepartment;
     private String dtudisease;
     private String dage;
     private String dsex;
@@ -15,6 +16,33 @@ public class Doctors {
     private String dturegion;
     private String dtupeople;
     private String dpassword;
+    private int Dflag;
+
+
+
+
+    public Doctors(String dname, String dtitle, String dskill) {
+        this.dname = dname;
+        this.dtitle = dtitle;
+        this.dskill = dskill;
+    }
+
+    public Doctors(String dphone, String dpassword, int dflag) {
+        this.dphone = dphone;
+        this.dpassword = dpassword;
+        Dflag = dflag;
+    }
+
+    public Doctors() {
+    }
+
+    public int getDflag() {
+        return Dflag;
+    }
+
+    public void setDflag(int dflag) {
+        Dflag = dflag;
+    }
 
     public String getDpassword() {
         return dpassword;
@@ -24,29 +52,12 @@ public class Doctors {
         this.dpassword = dpassword;
     }
 
-    public Doctors(String dname, String dtitle, String dskill) {
-        this.dname = dname;
-        this.dtitle = dtitle;
-        this.dskill = dskill;
+    public String getDdepartment() {
+        return ddepartment;
     }
 
-    public Doctors(int dind, String dname, String dphone, String dtitle, String dskill, String dtudisease, String dage, String dsex, int d_uid, String dtuage, String dtusex, String dturegion, String dtupeople) {
-        this.dind = dind;
-        this.dname = dname;
-        this.dphone = dphone;
-        this.dtitle = dtitle;
-        this.dskill = dskill;
-        this.dtudisease = dtudisease;
-        this.dage = dage;
-        this.dsex = dsex;
-        this.d_uid = d_uid;
-        this.dtuage = dtuage;
-        this.dtusex = dtusex;
-        this.dturegion = dturegion;
-        this.dtupeople = dtupeople;
-    }
-
-    public Doctors() {
+    public void setDdepartment(String ddepartment) {
+        this.ddepartment = ddepartment;
     }
 
     public int getDind() {
@@ -153,22 +164,4 @@ public class Doctors {
         this.dtupeople = dtupeople;
     }
 
-    @Override
-    public String toString() {
-        return "Doctors{" +
-                "dind=" + dind +
-                ", dname='" + dname + '\'' +
-                ", dphone='" + dphone + '\'' +
-                ", dtitle='" + dtitle + '\'' +
-                ", dskill='" + dskill + '\'' +
-                ", dtudisease='" + dtudisease + '\'' +
-                ", dage='" + dage + '\'' +
-                ", dsex='" + dsex + '\'' +
-                ", d_uid=" + d_uid +
-                ", dtuage='" + dtuage + '\'' +
-                ", dtusex='" + dtusex + '\'' +
-                ", dturegion='" + dturegion + '\'' +
-                ", dtupeople='" + dtupeople + '\'' +
-                '}';
-    }
 }

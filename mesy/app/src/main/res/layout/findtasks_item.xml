@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:id="@+id/find_hos"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="hospital"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/find_doc"
+        android:text="doctor"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@+id/find_hos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/find_year"
+        android:layout_below="@+id/find_hos"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:text="week"
+        android:id="@+id/find_week"
+        android:layout_below="@+id/find_doc"
+        android:layout_toRightOf="@+id/find_year"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:text="week"
+        android:id="@+id/find_day"
+        android:layout_below="@+id/find_doc"
+        android:layout_toRightOf="@+id/find_week"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

@@ -31,7 +31,8 @@ public class Appointment extends Fragment {
             @Override
             public void onClick(View view) {
                 //进入专家推荐页面
-                Intent intent = new Intent(view.getContext(),Expert.class);
+                //测试进入医院登录页面
+                Intent intent = new Intent(view.getContext(),HospitalMainActivity.class);
                 startActivity(intent);
 
             }

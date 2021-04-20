@@ -25,6 +25,19 @@
         <activity android:name=".Task" />
         <activity android:name=".DoctorMainActivity" />
         <activity android:name=".Chat" />
+        <activity android:name="com.example.medsy.Register"/>
+        <activity android:name="com.example.medsy.RegisterKS"/>
+        <activity android:name="com.example.medsy.RegisterDoctor"/>
+        <activity android:name="com.example.medsy.RegisterDetail"/>
+        <activity android:name="com.example.medsy.Task"/>
+        <activity android:name="com.example.medsy.DoctorMainActivity"/>
+        <activity android:name="com.example.medsy.Chat"/>
+        <activity android:name="com.example.medsy.HospitalMainActivity"/>
+        <activity android:name="com.example.medsy.My_change"/>
+        <activity android:name="com.example.medsy.HosSettings"/>
+        <activity android:name="com.example.medsy.DocSettings"/>
+        <activity android:name="com.example.medsy.FindTasks"/>
+
     </application>
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />

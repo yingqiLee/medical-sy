@@ -9,6 +9,7 @@ public class Users {
     private String uImage;
     private String flag_doc;
     private String upassword;
+    private int Uflag;
 
     public String getPassword() {
         return upassword;
@@ -27,6 +28,28 @@ public class Users {
     }
 
     public Users() {
+    }
+
+    public Users(String uPhone, String upassword, int uflag) {
+        this.uPhone = uPhone;
+        this.upassword = upassword;
+        Uflag = uflag;
+    }
+
+    public String getUpassword() {
+        return upassword;
+    }
+
+    public void setUpassword(String upassword) {
+        this.upassword = upassword;
+    }
+
+    public int getUflag() {
+        return Uflag;
+    }
+
+    public void setUflag(int uflag) {
+        Uflag = uflag;
     }
 
     public int getuId() {

@@ -5,33 +5,57 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <RelativeLayout
-        android:id="@+id/uesr_text"
+        android:id="@+id/doc_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
-            android:id="@+id/user_image"
+            android:id="@+id/doc_image"
             android:src="@drawable/user_image"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"/>
         <TextView
-            android:layout_toRightOf="@+id/user_image"
-            android:id="@+id/uese_name"
+            android:layout_toRightOf="@+id/doc_image"
+            android:id="@+id/doc_name"
             android:text="zhangsan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"/>
         <TextView
-            android:text="12345678910"
-            android:id="@+id/use_iphone"
+            android:text="hospital"
+            android:id="@+id/doc_hos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/uese_name"
-            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/doc_name"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             />
+        <TextView
+            android:id="@+id/doc_dec"
+            android:layout_toRightOf="@+id/doc_hos"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:text="Section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_toRightOf="@+id/doc_dec"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:text="Title"
+            android:id="@+id/doc_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="Skill"
+            android:layout_below="@+id/doc_name"
+            android:layout_toRightOf="@+id/doc_image"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </RelativeLayout>
     <View
         android:background="@color/theme"
@@ -49,14 +73,14 @@
             <ImageView
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="20dp"
-                android:id="@+id/u_change_image"
+                android:id="@+id/d_change_image"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/shezhi" />
             <TextView
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="5dp"
-                android:layout_below="@+id/u_change_image"
+                android:layout_below="@+id/d_change_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="设置"
