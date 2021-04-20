@@ -9,10 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".allaboutmy.userpwd"></activity>
-        <activity android:name=".userpwd" />
-        <activity android:name=".allaboutmy.userland" />
-        <activity android:name=".allaboutmy.userlogin" />
+        <activity android:name=".allaboutmy.login"></activity>
+        <activity android:name=".allaboutmy.userpwd" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,14 +18,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.medsy.Register"/>
-        <activity android:name="com.example.medsy.RegisterKS"/>
-        <activity android:name="com.example.medsy.RegisterDoctor"/>
-        <activity android:name="com.example.medsy.RegisterDetail"/>
-        <activity android:name="com.example.medsy.Task"/>
-        <activity android:name="com.example.medsy.DoctorMainActivity"/>
-        <activity android:name="com.example.medsy.Chat"/>
-
+        <activity android:name=".Register" />
+        <activity android:name=".RegisterKS" />
+        <activity android:name=".RegisterDoctor" />
+        <activity android:name=".RegisterDetail" />
+        <activity android:name=".Task" />
+        <activity android:name=".DoctorMainActivity" />
+        <activity android:name=".Chat" />
     </application>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

@@ -14,8 +14,17 @@ public class Doctors {
     private String dtusex;
     private String dturegion;
     private String dtupeople;
+    private String dpassword;
 
-    public Doctors(String dname,String dtitle, String dskill) {
+    public String getDpassword() {
+        return dpassword;
+    }
+
+    public void setDpassword(String dpassword) {
+        this.dpassword = dpassword;
+    }
+
+    public Doctors(String dname, String dtitle, String dskill) {
         this.dname = dname;
         this.dtitle = dtitle;
         this.dskill = dskill;

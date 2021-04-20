@@ -8,6 +8,15 @@ public class Users {
     private String uPhone;
     private String uImage;
     private String flag_doc;
+    private String upassword;
+
+    public String getPassword() {
+        return upassword;
+    }
+
+    public void setPassword(String upassword) {
+        this.upassword = upassword;
+    }
 
     public Users(int uId, String uName, String uPhone, String uImage, String flag_doc) {
         this.uId = uId;
