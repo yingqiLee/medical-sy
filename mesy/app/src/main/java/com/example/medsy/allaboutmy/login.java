@@ -45,6 +45,8 @@ public class login extends AppCompatActivity {
     private Hospitals hospital;
 
     private String phoneText;
+    private String pwdText;
+    private String info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,27 +57,48 @@ public class login extends AppCompatActivity {
         checkBox2 = findViewById(R.id.checkbox2);
         phone = findViewById(R.id.phonenumber);
         pwd = findViewById(R.id.password);
-        phoneText = phone.getText().toString();
-        final String pwdText = pwd.getText().toString();
-
-        Log.e("ceshi",phoneText);
+        Log.e("顺序1","1");
+        Log.e("输入框phone",phoneText+" 加载");
 
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.e("ceshi",phoneText);
-                Log.e("ceshi","开始");
-                user.setuPhone(phoneText);
-                user.setPassword(pwdText);
-                user.setUflag(flag);
+                Log.e("顺序2","2");
+                if(flag==0){
 
-                getData();
+                    phoneText = phone.getText().toString().trim();
+                    pwdText = pwd.getText().toString();
+                    user = new Users(phoneText,pwdText,flag);
+                    Log.e("输入框phone",phoneText+" 0");
+                    Gson gson = new Gson();
+                    info = gson.toJson(user);
+                    Log.e("user",info);
+                    getData(info);
+                }
+                else if(flag==1){
+                    phoneText = phone.getText().toString().trim();
+                    pwdText = pwd.getText().toString();
+                    Log.e("输入框phone",phoneText+" 1");
+                    doctor = new Doctors(phoneText,pwdText,flag);
+                    Gson gson = new Gson();
+                    info = gson.toJson(doctor);
+                    Log.e("doctor",info);
+                    getData(info);
+                }
+                else if(flag==2){
+                    phoneText = phone.getText().toString().trim();
+                    pwdText = pwd.getText().toString();
+                    Log.e("输入框phone",phoneText+" 2");
+                    hospital = new Hospitals(phoneText,pwdText,flag);
+                    Gson gson = new Gson();
+                    info = gson.toJson(hospital);
+                    Log.e("hospital",info);
+                    getData(info);
+                }
+
             }
         });
-
-
-
 
         checkBox1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,32 +114,14 @@ public class login extends AppCompatActivity {
                 flag = 2;
             }
         });
-        if(flag==0){
-            user = new Users(phoneText,pwdText,flag);
-        }
-        else if(flag==1){
-            doctor = new Doctors(phoneText,pwdText,flag);
-        }
-        else if(flag==2){
-            hospital = new Hospitals(phoneText,pwdText,flag);
-        }
 
         handler = new Handler(){
             @Override
             public void handleMessage(@NonNull Message msg) {
                 super.handleMessage(msg);
                 String info = (String)msg.obj;
-
-//                String inforicon = info;
                 if("密码正确".equals(info)){
                     if(flag==0){
-//                        button.setOnClickListener(new View.OnClickListener() {
-//                            @Override
-//                            public void onClick(View view) {
-//
-//
-//                            }
-//                        });
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         intent.putExtra("phone",phoneText);
                         intent.putExtra("pwd",pwdText);
@@ -146,35 +151,15 @@ public class login extends AppCompatActivity {
                 }
             }
         };
-
-
-
-
-
-
-
-
-
     }
-    private void getData() {
+    private void getData(final String toinfo) {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    Gson gson = new Gson();
-                    String info = null;
-                    if(user!=null){
-                        info = gson.toJson(user);
-                    }
-                    else if(doctor!=null){
-                        info = gson.toJson(doctor);
-                    }
-                    else if(hospital!=null){
-                        info = gson.toJson(hospital);
-                    }
                     //自己的ip
                     //xxxx对应文件名
-                    URL url = new URL("http://192.168.2.202:8080/medical/user/signin?info"+info);
+                    URL url = new URL("http://192.168.2.202:8080/medical/user/signin?info"+toinfo);
                     URLConnection conn = url.openConnection();
                     InputStream in = conn.getInputStream();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(in, "utf-8"));

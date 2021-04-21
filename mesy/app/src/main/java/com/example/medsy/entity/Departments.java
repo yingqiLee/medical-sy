@@ -1,6 +1,8 @@
 package com.example.medsy.entity;
 
 public class Departments {
+    private int hid;
+    private int kid;
     private String main;
     private String introduce;
     private String little;
@@ -12,6 +14,22 @@ public class Departments {
         this.main = main;
         this.introduce = introduce;
         this.little = little;
+    }
+
+    public int getHid() {
+        return hid;
+    }
+
+    public void setHid(int hid) {
+        this.hid = hid;
+    }
+
+    public int getKid() {
+        return kid;
+    }
+
+    public void setKid(int kid) {
+        this.kid = kid;
     }
 
     public String getMain() {

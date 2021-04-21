@@ -41,24 +41,14 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.register);
         final List<Hospitals> lists=new ArrayList<>();
         hoslistView = findViewById(R.id.Reg_hos_listview);
-        List<Hospitals> hospitalsList = new ArrayList<>();
+        final List<Hospitals> hospitalsList = new ArrayList<>();
         Hospitals hospital1 = new Hospitals("yiyuana","sanjijiadeng","zongheyiyuan","haopingdiyi");
         Hospitals hospital2 = new Hospitals("yiyuanb","sanjijiadeng","zongheyiyuan","haopingdiyi");
         hospitalsList.add(hospital1);
         hospitalsList.add(hospital2);
         hosListAdapter = new RegHosListAdapter(this,hospitalsList,R.layout.reghositem);
         hoslistView.setAdapter(hosListAdapter);
-        //listview设置监听，点击每一个item跳转对应
-        //跳转对应医院展示并选择科室
-        hoslistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //待补充获取点击item的信息并传递
-
-                Intent intent = new Intent(Register.this,RegisterKS.class);
-                startActivity(intent);
-            }
-        });
+        Log.e("进入测试","1111111");
         getData();
         handler = new Handler(){
             @Override
@@ -85,6 +75,21 @@ public class Register extends AppCompatActivity {
                 hoslistView.setAdapter(hosListAdapter);
             }
         };
+        //listview设置监听，点击每一个item跳转对应
+        //跳转对应医院展示并选择科室
+        hoslistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //待补充获取点击item的信息并传递
+                Log.e("hospital点击测试",hospitalsList.get(i).getName());
+
+                Intent intent = new Intent(Register.this,RegisterKS.class);
+                //根据医院id查找对应医院全部科室
+                intent.putExtra("hname",hospitalsList.get(i).getName());
+                intent.putExtra("hid",hospitalsList.get(i).getId());
+                startActivity(intent);
+            }
+        });
 
 
     }
@@ -93,7 +98,8 @@ public class Register extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    URL url = new URL("http://175.24.14.26:8080/Catchtime/ActivityController?userid=");
+                    //查找全部医院
+                    URL url = new URL("http://xx:8080/medical/xxxx?");
                     URLConnection conn = url.openConnection();
                     InputStream in = conn.getInputStream();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(in, "utf-8"));
