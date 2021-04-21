@@ -44,7 +44,7 @@
             android:src="@drawable/password" />
 
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <EditText
             android:id="@+id/password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
             android:height="55dp"
             />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <EditText
             android:id="@+id/phonenumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

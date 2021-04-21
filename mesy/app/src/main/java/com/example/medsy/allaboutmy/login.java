@@ -44,17 +44,39 @@ public class login extends AppCompatActivity {
     private Doctors doctor;
     private Hospitals hospital;
 
+    private String phoneText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        button = findViewById(R.id.signin);
         checkBox1 = findViewById(R.id.checkbox1);
         checkBox2 = findViewById(R.id.checkbox2);
         phone = findViewById(R.id.phonenumber);
         pwd = findViewById(R.id.password);
-        final String phoneText = phone.getText().toString();
+        phoneText = phone.getText().toString();
         final String pwdText = pwd.getText().toString();
+
+        Log.e("ceshi",phoneText);
+
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e("ceshi",phoneText);
+                Log.e("ceshi","开始");
+                user.setuPhone(phoneText);
+                user.setPassword(pwdText);
+                user.setUflag(flag);
+
+                getData();
+            }
+        });
+
+
+
+
         checkBox1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,22 +100,30 @@ public class login extends AppCompatActivity {
         else if(flag==2){
             hospital = new Hospitals(phoneText,pwdText,flag);
         }
-        getData();
 
         handler = new Handler(){
             @Override
             public void handleMessage(@NonNull Message msg) {
                 super.handleMessage(msg);
                 String info = (String)msg.obj;
+
 //                String inforicon = info;
                 if("密码正确".equals(info)){
                     if(flag==0){
+//                        button.setOnClickListener(new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View view) {
+//
+//
+//                            }
+//                        });
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         intent.putExtra("phone",phoneText);
                         intent.putExtra("pwd",pwdText);
                         intent.putExtra("Uflag",flag);
                         startActivity(intent);
                         finish();
+
                     }
                     else if(flag==1){
                         Intent intent = new Intent(getApplicationContext(), DoctorMainActivity.class);
@@ -122,6 +152,9 @@ public class login extends AppCompatActivity {
 
 
 
+
+
+
     }
     private void getData() {
         new Thread(new Runnable() {
@@ -141,7 +174,7 @@ public class login extends AppCompatActivity {
                     }
                     //自己的ip
                     //xxxx对应文件名
-                    URL url = new URL("http://xx:8080/medical/xxxx?info"+info);
+                    URL url = new URL("http://192.168.2.202:8080/medical/user/signin?info"+info);
                     URLConnection conn = url.openConnection();
                     InputStream in = conn.getInputStream();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(in, "utf-8"));
