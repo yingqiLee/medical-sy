@@ -47,6 +47,7 @@ public class login extends AppCompatActivity {
     private String phoneText;
     private String pwdText;
     private String info;
+    private String load=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,8 +74,9 @@ public class login extends AppCompatActivity {
                     Log.e("输入框phone",phoneText+" 0");
                     Gson gson = new Gson();
                     info = gson.toJson(user);
+                    load = "user";
                     Log.e("user",info);
-                    getData(info);
+                    getData();
                 }
                 else if(flag==1){
                     phoneText = phone.getText().toString().trim();
@@ -83,8 +85,9 @@ public class login extends AppCompatActivity {
                     doctor = new Doctors(phoneText,pwdText,flag);
                     Gson gson = new Gson();
                     info = gson.toJson(doctor);
+                    load = "Doc";
                     Log.e("doctor",info);
-                    getData(info);
+                    getData();
                 }
                 else if(flag==2){
                     phoneText = phone.getText().toString().trim();
@@ -93,8 +96,9 @@ public class login extends AppCompatActivity {
                     hospital = new Hospitals(phoneText,pwdText,flag);
                     Gson gson = new Gson();
                     info = gson.toJson(hospital);
+                    load = "Hos";
                     Log.e("hospital",info);
-                    getData(info);
+                    getData();
                 }
 
             }
@@ -152,14 +156,14 @@ public class login extends AppCompatActivity {
             }
         };
     }
-    private void getData(final String toinfo) {
+    private void getData() {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     //自己的ip
                     //xxxx对应文件名
-                    URL url = new URL("http://192.168.2.202:8080/medical/user/signin?info"+toinfo);
+                    URL url = new URL("http://192.168.2.202:8080/medical/"+load+"/signin?info="+info);
                     URLConnection conn = url.openConnection();
                     InputStream in = conn.getInputStream();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(in, "utf-8"));
