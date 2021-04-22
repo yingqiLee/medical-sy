@@ -57,7 +57,7 @@
                 />
             <TextView
                 android:layout_toRightOf="@+id/reg_doc_name"
-                android:id="@+id/red_doc_title"
+                android:id="@+id/reg_doc_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -190,6 +190,7 @@
                 android:layout_height="wrap_content"
                 android:text="就诊人："/>
             <EditText
+                android:id="@+id/reg_name"
                 android:layout_marginLeft="10dp"
                 android:layout_width="300dp"
                 android:layout_height="30dp"/>
@@ -204,6 +205,7 @@
                 android:layout_height="wrap_content"
                 android:text="确诊疾病："/>
             <EditText
+                android:id="@+id/reg_disease"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"/>
         </LinearLayout>

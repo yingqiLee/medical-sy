@@ -25,6 +25,9 @@ public class TaskTime {
         this.taskday = taskday;
     }
 
+    public TaskTime() {
+    }
+
     public int getId() {
         return id;
     }

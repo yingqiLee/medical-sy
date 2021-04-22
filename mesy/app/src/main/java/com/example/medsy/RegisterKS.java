@@ -41,28 +41,35 @@ public class RegisterKS extends AppCompatActivity {
         setContentView(R.layout.reg_keshi);
         regsiterKSListView = findViewById(R.id.regks_listview);
         final List<Departments> list = new ArrayList<>();
-        Departments department1 = new Departments("fuke","zhuanzhifukejibing","xiaofuke");
-        Departments department2 = new Departments("fuke","zhuanzhifukejibing","xiaofuke");
-        List<Departments> departmentList = new ArrayList<>();
-        departmentList.add(department1);
-        departmentList.add(department2);
-        registerKSAdapter = new RegisterKSAdapter(this,departmentList,R.layout.reg_ks_item);
-        regsiterKSListView.setAdapter(registerKSAdapter);
+//        Departments department1 = new Departments("fuke","zhuanzhifukejibing","xiaofuke");
+//        Departments department2 = new Departments("fuke","zhuanzhifukejibing","xiaofuke");
+//        List<Departments> departmentList = new ArrayList<>();
+//        departmentList.add(department1);
+//        departmentList.add(department2);
+//        registerKSAdapter = new RegisterKSAdapter(this,departmentList,R.layout.reg_ks_item);
+//        regsiterKSListView.setAdapter(registerKSAdapter);
+
+
         //获取医院id
         Intent intent = getIntent();
         h_id = intent.getStringExtra("hid");
+        Log.e("hospital id",h_id);
+
+        getData();
+
+
         handler = new Handler(){
             @Override
             public void handleMessage(@NonNull Message msg) {
                 super.handleMessage(msg);
 
                 String KeShiinfo = (String) msg.obj;
-                Log.e("info", KeShiinfo);
+                Log.e("KeShiinfo", KeShiinfo);
                 Type type = new TypeToken<List<Departments>>() {
                 }.getType();
                 Gson gson = new Gson();
                 List<Departments> list = gson.fromJson(KeShiinfo.trim(), type);
-                Log.e("error", list.toString());
+                Log.e("Keshi error", list.toString());
                 //数据展示至页面
                 for (int i = 0; i < list.size(); i++){
                     Departments department = new Departments();
@@ -83,6 +90,7 @@ public class RegisterKS extends AppCompatActivity {
                //待补充获取点击item的信息并传递
                Intent intent = new Intent(RegisterKS.this,RegisterDoctor.class);
                intent.putExtra("ksid",list.get(i).getKid());
+               intent.putExtra("hid",h_id);
                startActivity(intent);
            }
         });
@@ -92,8 +100,8 @@ public class RegisterKS extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    //查找全部医院
-                    URL url = new URL("http://xx:8080/medical/xxxx?hid="+h_id);
+                    //查找对应医院的全部科室
+                    URL url = new URL("http://192.168.2.202:8080/medical/user/xx?hid="+h_id);
                     URLConnection conn = url.openConnection();
                     InputStream in = conn.getInputStream();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(in, "utf-8"));
