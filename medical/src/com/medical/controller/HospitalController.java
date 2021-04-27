@@ -1,5 +1,7 @@
 package com.medical.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.google.gson.Gson;
 import com.medical.entity.Doctors;
+import com.medical.entity.Hospitals;
 import com.medical.service.HospitalService;
 import com.medical.service.usersService;
 
@@ -33,5 +36,12 @@ public class HospitalController {
 		}
 		return "’À∫≈ªÚ√‹¬Î¥ÌŒÛ";
 	}
+	
+	@RequestMapping("/findHoList")
+	public List<Hospitals> findHospitalById(){
+		return this.HospitalService.findHospital();
+		
+	}
+	
 	
 }

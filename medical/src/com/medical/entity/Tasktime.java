@@ -1,13 +1,31 @@
 package com.medical.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
+@Entity
+@Table(name = "Tasktime")
 public class Tasktime {
+	@Id
+	@GeneratedValue(generator="increment_generator")
+	@GenericGenerator(name="increment_generator",strategy="increment")
     private int ttimeid;
     private String taskdtime;
     private String taskweek;
     private String taskday;
     private String flag;
+    //医生患者的id 本来就有的
     private int taskdid;
     private int taskuid;
+    
+    
+	public Tasktime() {
+		super();
+	}
 	public int getTtimeid() {
 		return ttimeid;
 	}

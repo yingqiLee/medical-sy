@@ -18,7 +18,7 @@ public class DoctorController {
 
 
 	@Resource
-	private DoctorService DoctorService ;
+	private DoctorService DoctorService;
 	
 	
 	

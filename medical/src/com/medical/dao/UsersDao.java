@@ -30,15 +30,16 @@ public class UsersDao {
 		List<Users> userlist=query.list();
 		if(userlist.size() == 0) {
 			Users u = new Users(phone,password,0);
-			return "»¶Ó­×¢²á";
+			int id = (int)session.save(u);
+			return ""+id;
 		}
 		else {
 			Users u2 =userlist.get(0) ;
 			if(u2.getUpassword().equals(password)) {
-				return "ÕËºÅÕıÈ·";
+				return ""+u2.getuId();
 			}
 			else
-				return "ÕËºÅ»òÃÜÂë´íÎó";
+				return "ÕËºÅ»òÃÜÂë´íÎó"; 
 			
 		}
 		

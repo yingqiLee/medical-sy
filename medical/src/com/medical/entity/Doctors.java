@@ -18,7 +18,6 @@ public class Doctors {
     private String dphone;
     private String dtitle;
     private String dskill;
-    private String ddepartment;
     private String dtudisease;
     private String dage;
     private String dsex;
@@ -29,6 +28,11 @@ public class Doctors {
     private String dtupeople;
     private String dpassword;
     private int Dflag;
+    private String ddepartment;
+    private String dhospital;
+    //新加的两个外键
+    private int ddepartmentid;
+    private int dhospitalid;
     
     
     

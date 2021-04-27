@@ -37,4 +37,17 @@ public class HospitalsDao {
 		
 	}
 	
+	//≤È’““Ω‘∫list
+	public List<Hospitals> findHospital() {
+		Session session=this.sessionFactory.getCurrentSession();
+		Query query = session.createQuery("selsect * from Hospitals");
+		List<Hospitals> ho=query.list();
+		return ho;
+	}
+	
+
+	
+	
+	
+	
 }

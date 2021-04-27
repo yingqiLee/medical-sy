@@ -37,4 +37,15 @@ public class DoctorDao {
 		
 	}
 	
+	//根据医院id、科室id查找对应科室的全部医生(list<科室>)(只要name，title，科室，skill)；
+	public List<Doctors> findALLD(int hoid,int deid) {
+		Session session=this.sessionFactory.getCurrentSession();
+		Query query = session.createQuery("select did,dname,dtitle,department,dskill from Doctors where dhospitalid= ? and ddepartmentid = ?");
+		query.setParameter(0, hoid);
+		query.setParameter(1, deid);
+		List<Doctors> doclist=query.list();
+		return doclist;
+	}
+	
+	
 }

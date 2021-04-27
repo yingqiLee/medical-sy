@@ -22,10 +22,6 @@ public class Users {
     private String upassword;
     private int Uflag;
     
-	
-    
-    
-    
 	public Users() {
 		super();
 	}
