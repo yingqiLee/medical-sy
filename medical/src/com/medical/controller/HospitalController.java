@@ -44,4 +44,20 @@ public class HospitalController {
 	}
 	
 	
+	//根据hosid更新查找返回hospitald(name,type,description)
+	@RequestMapping("/findHospitalById")
+	public Hospitals findHospitalById(@RequestParam String info) {
+		int did = Integer.parseInt(info);
+		return this.HospitalService.findHospitalById(did);
+	}
+	
+	//根据hospitals类型字符串解析后根据hosid更新
+	public void updateHo(@RequestParam String info) {
+		Gson gson=new Gson();
+		Hospitals h =gson.fromJson(info, Hospitals.class);
+		this.HospitalService.updateHo(h);
+	}
+	
+	
+	
 }

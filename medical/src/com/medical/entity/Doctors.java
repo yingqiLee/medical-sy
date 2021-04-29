@@ -28,9 +28,9 @@ public class Doctors {
     private String dtupeople;
     private String dpassword;
     private int Dflag;
+    //新加的两个外键
     private String ddepartment;
     private String dhospital;
-    //新加的两个外键
     private int ddepartmentid;
     private int dhospitalid;
     
@@ -38,6 +38,27 @@ public class Doctors {
     
     
     
+    
+    
+    
+	public String getDhospital() {
+		return dhospital;
+	}
+	public void setDhospital(String dhospital) {
+		this.dhospital = dhospital;
+	}
+	public int getDdepartmentid() {
+		return ddepartmentid;
+	}
+	public void setDdepartmentid(int ddepartmentid) {
+		this.ddepartmentid = ddepartmentid;
+	}
+	public int getDhospitalid() {
+		return dhospitalid;
+	}
+	public void setDhospitalid(int dhospitalid) {
+		this.dhospitalid = dhospitalid;
+	}
 	public Doctors() {
 		super();
 	}

@@ -30,5 +30,14 @@ public class HospitalService {
 		
 	}
 	
+	//根据hosid更新查找返回hospitald(name,type,description)
+	public Hospitals findHospitalById(int hid) {
+		return this.findHospitalById(hid);
+	}
+	
+	//根据hospitals类型字符串解析后根据hosid更新
+	public void updateHo(Hospitals h) {
+		this.HospitalsDao.updateHo(h);
+	}
 	
 }

@@ -19,11 +19,19 @@ public class Tasks {
     private int HosId;
     //tasktime外键
     private int TimeId;
-    
+    //新加的病人id
+    private int UserId;
     
     
 	public Tasks() {
 		super();
+	}
+
+	public int getUserId() {
+		return UserId;
+	}
+	public void setUserId(int userId) {
+		UserId = userId;
 	}
 	public int getT_id() {
 		return t_id;

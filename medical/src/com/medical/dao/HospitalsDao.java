@@ -45,6 +45,18 @@ public class HospitalsDao {
 		return ho;
 	}
 	
+	//(3)根据hosid更新查找返回hospitald(name,type,description)
+	public Hospitals findHospitalById(int hid) {
+		Session session=this.sessionFactory.getCurrentSession();
+		Hospitals h =session.get(Hospitals.class, hid);
+		return h;
+	}
+	
+	
+	public void updateHo(Hospitals h) {
+		Session session=this.sessionFactory.getCurrentSession();
+		session.saveOrUpdate(h);;
+	}
 
 	
 	

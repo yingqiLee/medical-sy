@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import com.medical.entity.Doctors;
+import com.medical.entity.Tasktime;
 import com.medical.entity.Users;
 
 @Repository
@@ -46,6 +47,25 @@ public class DoctorDao {
 		List<Doctors> doclist=query.list();
 		return doclist;
 	}
+	
+	//根据docid更新查找返回doctors(name,Hos,Dep,Skill,Title)
+	public Doctors findDByDid(int did) {
+		Session session=this.sessionFactory.getCurrentSession();
+		Query query = session.createQuery("select * from Doctors where dind= ?");
+		query.setParameter(0, did);
+		List<Doctors> doclist=query.list();
+		Doctors d = doclist.get(0);
+		return d;
+		
+	}
+	
+	//(4)接收doctors类型字符串解析后根据docid更新
+	public void updateDocByDid(Doctors d) {
+		Session session=this.sessionFactory.getCurrentSession();
+		session.saveOrUpdate(d);
+	}
+	
+
 	
 	
 }

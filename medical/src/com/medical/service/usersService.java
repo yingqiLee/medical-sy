@@ -21,4 +21,20 @@ public class usersService {
 	}
 	
 	
+	
+	//根据id查学生
+	@Transactional(readOnly = false)
+	public Users findUserById(int id) {
+		return this.userDao.findUserById(id);
+		
+	}
+	
+	
+	//根据id更改
+	@Transactional(readOnly = false)
+	public void update(Users u) {
+		this.userDao.update(u);
+		
+	}
+	
 }

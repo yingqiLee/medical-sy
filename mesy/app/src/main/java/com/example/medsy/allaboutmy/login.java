@@ -163,7 +163,7 @@ public class login extends AppCompatActivity {
                 try {
                     //自己的ip
                     //xxxx对应文件名
-                    URL url = new URL("http://192.168.2.202:8080/medical/"+load+"/signin?info="+info);
+                    URL url = new URL("http://36.157.216.55:3306/medical/"+load+"/signin?info="+info);
                     URLConnection conn = url.openConnection();
                     InputStream in = conn.getInputStream();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(in, "utf-8"));

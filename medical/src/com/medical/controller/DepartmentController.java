@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.medical.service.DepartmentService;
-import com.medical.service.DoctorService;
+
 
 
 

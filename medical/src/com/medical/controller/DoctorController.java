@@ -2,6 +2,7 @@ package com.medical.controller;
 
 import javax.annotation.Resource;
 
+import org.hibernate.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,7 +22,6 @@ public class DoctorController {
 	private DoctorService DoctorService;
 	
 	
-	
 	@RequestMapping("/signin")
 	public String signin(@RequestParam String info) {
 		System.out.println("aaa");
@@ -38,4 +38,30 @@ public class DoctorController {
 		}
 		return "账号或密码错误";
 	}
+	
+	
+	//根据docid更新查找返回doctors(name,Hos,Dep,Skill,Title)
+	@RequestMapping("/findDByDid")
+	public Doctors findDByDid(@RequestParam String info) {
+		int dd = Integer.parseInt(info);
+		Doctors d = DoctorService.findDByDid(dd);
+		Gson gson=new Gson();
+		String a = gson.toJson(d);
+		return d;
+		
+	}
+	
+	
+	//(4)接收doctors类型字符串解析后根据docid更新
+	@RequestMapping("/findDByDid")
+	public void updateDocByDid(@RequestParam String info) {
+		Gson gson=new Gson();
+		Doctors d=gson.fromJson(info, Doctors.class);
+		this.DoctorService.updateDocByDid(d);
+	}
+	
+	
+	
+	
+	
 }

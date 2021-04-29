@@ -8,6 +8,8 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
+
+import com.aliyuncs.ram.model.v20150501.CreateUserResponse.User;
 import com.medical.entity.Users;
 
 
@@ -45,6 +47,22 @@ public class UsersDao {
 		
 	}
 	
+	//根据id查找user
+	public Users findUserById(int id) {
+		Session session=this.sessionFactory.getCurrentSession();
+		Query query = session.createQuery("select * from Users where uId=?");
+		query.setParameter(0,id);
+		List<Users> userlist=query.list();
+		Users u = userlist.get(0);
+		return u;
+	}
+	
+	
+	//个人中心更改user信息
+	public void update(Users u) {
+		Session session=this.sessionFactory.getCurrentSession();
+		session.saveOrUpdate(u);
+	}
 	
 	
 	

@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import com.medical.entity.Doctors;
+import com.medical.entity.Taskitems;
 import com.medical.entity.Tasks;
 import com.medical.entity.Tasktime;
 
@@ -43,6 +44,18 @@ public class TasktimeDao {
 		}
 		 
 	}
+	
+	//根据docid查找TaskTime中flag=0对象，返回List<TaskTime>
+	public List<Tasktime> findTasktimeByDid(int did){
+		Session session=this.sessionFactory.getCurrentSession();
+		Query query = session.createQuery("select * from Tasktime where taskdid= ? and flag = ?");
+		query.setParameter(0, did);
+		query.setParameter(1, "0");
+		List<Tasktime> list=query.list();
+		return list;
+		
+	}
+
 
 	
 
